@@ -47,9 +47,6 @@ const styles = StyleSheet.create({
   base: {
     backgroundColor: '#fff',
   },
-  colored: {
-    // Used when a specific background color is applied
-  },
   padded: {
     paddingVertical: 20,
     paddingHorizontal: 16,

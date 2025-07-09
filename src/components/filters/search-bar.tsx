@@ -11,7 +11,6 @@ export const SearchBar = ({ onPress }: ISearchInputProps) => {
   
   const onSearch = useCallback(() => {
     onPress();
-    // Add more logic here if needed, e.g., API calls
   }, [onPress]);
   return (
     <View>

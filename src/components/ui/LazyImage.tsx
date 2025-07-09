@@ -31,7 +31,6 @@ export const LazyImage = ({
   const [hasError, setHasError] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Memoized handlers to prevent unnecessary re-renders
   const handleLoadStart = useCallback(() => {
     setIsLoading(true);
     setHasError(false);
@@ -51,7 +50,6 @@ export const LazyImage = ({
     onError?.();
   }, [onError]);
 
-  // Memoized styles
   const containerStyle: ViewStyle = useMemo(() => ({
     ...style,
     position: 'relative',
@@ -65,7 +63,6 @@ export const LazyImage = ({
     left: 0,
   }), [style, isLoaded, hasError]);
 
-  // Don't render image if no source
   if (!source?.uri) {
     return placeholder ? (
       <PlaceholderImage
@@ -81,7 +78,6 @@ export const LazyImage = ({
 
   return (
     <View style={containerStyle}>
-      {/* Placeholder shown while loading or on error */}
       {(isLoading || hasError) && placeholder && (
         <PlaceholderImage
           width={placeholder.width}
@@ -93,7 +89,6 @@ export const LazyImage = ({
         />
       )}
       
-      {/* Actual image */}
       <Image
         testID="lazy-image"
         source={source}
@@ -102,7 +97,6 @@ export const LazyImage = ({
         onLoadStart={handleLoadStart}
         onLoadEnd={handleLoadEnd}
         onError={handleError}
-        // Optimize memory usage
         progressiveRenderingEnabled={true}
         fadeDuration={300}
       />

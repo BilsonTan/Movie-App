@@ -23,7 +23,6 @@ export const DetailsProvider = ({ children }: DetailsProviderProps) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  // Cache for already fetched movie details
   const [cache, setCache] = useState<Map<string, {
     movie: MovieApiTypes.IMovieDetails;
     credits: MovieApiTypes.IMovieCredits;

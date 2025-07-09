@@ -23,7 +23,6 @@ export const CircularProgress = ({
 }: CircularProgressProps) => {
   const progressPercentage = Math.min(Math.max(progress, 0), 100);
   
-  // Calculate radius with gap consideration
   const radius = (size - strokeWidth * 2 - gap * 2) / 2;
   const circumference = radius * 2 * Math.PI;
   const strokeDashoffset = circumference - (progressPercentage / 100) * circumference;
